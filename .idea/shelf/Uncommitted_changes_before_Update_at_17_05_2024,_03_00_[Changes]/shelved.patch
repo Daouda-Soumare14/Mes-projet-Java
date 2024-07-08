@@ -1,0 +1,194 @@
+Index: src/poo/exoBanque/Compte.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exoBanque/Compte.java b/src/poo/exoBanque/Compte.java
+new file mode 100644
+--- /dev/null	(date 1715914072432)
++++ b/src/poo/exoBanque/Compte.java	(date 1715914072432)
+@@ -0,0 +1,39 @@
++package poo.exoBanque;
++
++public abstract class Compte
++{
++    protected double solde;
++    protected int numCompte;
++
++    public Compte(double solde, int numCompte){
++        this.solde = solde;
++        this.numCompte = numCompte;
++    }
++
++
++    public int getNumCompte() {
++        return numCompte;
++    }
++
++    public double getSolde() {
++        return solde;
++    }
++
++    public void deposer(double montant) {
++        if (montant <= 0){
++            System.out.println("Le montant ne doit pas etre negatif");
++        }else{
++            this.solde += montant;
++        }
++    }
++
++    public void retirer(double montant) {
++        if (montant <= 0){
++            System.out.println("Le montant ne doit pas etre negatif");
++        }else{
++            this.solde -= montant;
++        }
++    }
++
++    public abstract void afficheDetail();
++}
+Index: src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pooJiraWs.Classe_Objet.Collection.Streams;\n\nimport lombok.AllArgsConstructor;\nimport lombok.Data;\nimport pooJiraWs.Classe_Objet.Collection.liste.Listes;\n\nimport java.util.Date;\nimport java.util.List;\n\n@Data\n@AllArgsConstructor\npublic class Humain\n{\n    String nom;\n    String prenom;\n    List<String> autresPrenomList;\n    Integer age;\n    Date dateNaissance;\n    Long numeroSocial;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java b/src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java
+--- a/src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java	(date 1715911349837)
+@@ -1,3 +1,4 @@
++/*
+ package pooJiraWs.Classe_Objet.Collection.Streams;
+ 
+ import lombok.AllArgsConstructor;
+@@ -18,3 +19,4 @@
+     Date dateNaissance;
+     Long numeroSocial;
+ }
++*/
+Index: src/poo/exoBanque/CompteSimple.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exoBanque/CompteSimple.java b/src/poo/exoBanque/CompteSimple.java
+new file mode 100644
+--- /dev/null	(date 1715914072424)
++++ b/src/poo/exoBanque/CompteSimple.java	(date 1715914072424)
+@@ -0,0 +1,14 @@
++package poo.exoBanque;
++
++public class CompteSimple extends Compte
++{
++    public CompteSimple(double solde, int numCompte) {
++        super(solde, numCompte);
++    }
++
++
++    @Override
++    public void afficheDetail() {
++        System.out.println("le solde actuel : "+ getSolde() + " le numCompte : "+ getNumCompte());
++    }
++}
+Index: src/poo/exoBanque/ITransaction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exoBanque/ITransaction.java b/src/poo/exoBanque/ITransaction.java
+new file mode 100644
+--- /dev/null	(date 1715907530471)
++++ b/src/poo/exoBanque/ITransaction.java	(date 1715907530471)
+@@ -0,0 +1,7 @@
++package poo.exoBanque;
++
++public interface ITransaction
++{
++    public void deposer(double montant);
++    public void retirer(double montant);
++}
+Index: src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pooJiraWs.Classe_Objet.Collection.Streams;\n\nimport java.util.Arrays;\nimport java.util.Date;\nimport java.util.List;\nimport java.util.stream.Collectors;\n\npublic class Main\n{\n    public static void main(String[] args)\n    {\n        List<Humain> humainList = Arrays.asList(\n                new Humain(\"soumare\", \"daouda\", List.of(\"rachid\"), 23, new Date(), 12344054543L),\n                new Humain(\"soumare\", \"hamidou\", List.of(\"bouba\", \"camara\", \"lassana\"), 25, new Date(), 12344154543L),\n                new Humain(\"soumare\", \"zakaria\", List.of(\"eljay\"), 24, new Date(), 12342454543L),\n                new Humain(\"fofana\", \"abdou\", List.of(\"samba\"), 29, new Date(), 12344354543L)\n        );\n\n        System.out.println(\"----------------------------------------------------------------------------\");\n        System.out.println(\"permet d'afficher s'il y a une personne qui a pluis de 20 ans dans liste\");\n        // permet d'afficher s'il y a une personne qui a pluis de 20 ans dans liste\n        if (humainList.stream().anyMatch(humain -> humain.getAge() >= 20)){\n            System.out.println(\"il y'a bien un humain agé de plus de 20 ans\");\n        }\n\n        System.out.println(\"----------------------------------------------------------------------------\");\n        System.out.println(\"Filtrer les Humains ayant un âge supérieur ou égal à 25 ans et les stocker dans une nouvelle liste\");\n        // Filtrer les Humains ayant un âge supérieur ou égal à 25 ans et les stocker dans une nouvelle liste\n        List<Humain> vieuxHumainList = humainList.stream().filter(humain -> humain.getAge() >= 25).toList();\n\n        // Parcourir la liste des Humains ayant un âge supérieur ou égal à 25 ans et afficher leur prénom\n        vieuxHumainList.forEach(humain -> System.out.println(humain.getPrenom()));\n\n        System.out.println(\"----------------------------------------------------------------------------\");\n        System.out.println(\"Filtrer les Humains ayant un âge supérieur ou égal à 25 ans et mapper leur numéro social dans une nouvelle liste\");\n        // Filtrer les Humains ayant un âge supérieur ou égal à 25 ans et mapper leur numéro social dans une nouvelle liste\n        List<Long> humainAgeDePlusDevingtAns = humainList.stream().filter(humain -> humain.getAge() >= 25).map(Humain::getNumeroSocial).toList();\n\n        // Afficher la liste des numéros sociaux des Humains ayant un âge supérieur ou égal à 25 ans\n        System.out.println(humainAgeDePlusDevingtAns);\n\n\n        System.out.println(\"----------------------------------------------------------------------------\");\n        System.out.println(\"Filtrer les Humains ayant un âge supérieur ou égal à 25 ans, puis mapper les listes d'autres prénoms dans une seule liste\");\n        // Filtrer les Humains ayant un âge supérieur ou égal à 25 ans, puis mapper les listes d'autres prénoms dans une seule liste\n        List<String> autresPrenomList = humainList.stream().filter(humain -> humain.getAge() >= 25).flatMap(humain -> humain.getAutresPrenomList().stream()).toList();\n\n        // Afficher la liste des autres prénoms des Humains ayant un âge supérieur ou égal à 25 ans\n        System.out.println(autresPrenomList);\n\n\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java b/src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java
+--- a/src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java	(date 1715911349821)
+@@ -1,3 +1,4 @@
++/*
+ package pooJiraWs.Classe_Objet.Collection.Streams;
+ 
+ import java.util.Arrays;
+@@ -51,3 +52,4 @@
+ 
+     }
+ }
++*/
+Index: src/poo/exoBanque/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exoBanque/Main.java b/src/poo/exoBanque/Main.java
+new file mode 100644
+--- /dev/null	(date 1715914543097)
++++ b/src/poo/exoBanque/Main.java	(date 1715914543097)
+@@ -0,0 +1,24 @@
++package poo.exoBanque;
++
++public class Main
++{
++    public static void main(String[] args){
++        CompteSimple monCompte = new CompteSimple(0.0, 33333333);
++        monCompte.afficheDetail();
++        monCompte.deposer(100);
++        monCompte.deposer(100);
++        monCompte.afficheDetail();
++        monCompte.retirer(50);
++        monCompte.afficheDetail();
++        System.out.println("########################################################");
++
++        CompteEpargne monCompteEpargne = new CompteEpargne(0.0, 22222222);
++        monCompteEpargne.afficheDetail();
++        monCompteEpargne.deposer(100000);
++        monCompteEpargne.afficheDetail();
++        monCompteEpargne.retirer(500);
++        monCompteEpargne.afficheDetail();
++
++
++    }
++}
+Index: src/poo/exoBanque/CompteEpargne.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exoBanque/CompteEpargne.java b/src/poo/exoBanque/CompteEpargne.java
+new file mode 100644
+--- /dev/null	(date 1715914543102)
++++ b/src/poo/exoBanque/CompteEpargne.java	(date 1715914543102)
+@@ -0,0 +1,20 @@
++package poo.exoBanque;
++
++public class CompteEpargne extends Compte
++{
++
++    public CompteEpargne(double solde, int numCompte) {
++        super(solde, numCompte);
++    }
++
++    public void calculInteret(){
++        System.out.println("le taut d'interet : "+(this.solde * 0.3) / 100 + "F");
++    }
++
++
++    @Override
++    public void afficheDetail() {
++        System.out.println("le solde actuel : "+ getSolde() + " le numCompte : "+ getNumCompte());
++        calculInteret();
++    }
++}

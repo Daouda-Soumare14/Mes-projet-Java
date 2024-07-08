@@ -1,0 +1,56 @@
+boolean	add(E e)
+Ajoute l'élément spécifié à la fin de cette liste (opération facultative).
+void	add(int index, E element)
+Insère l'élément spécifié à la position spécifiée dans cette liste (opération facultative).
+boolean	addAll(Collection<? extends E> c)
+Ajoute tous les éléments de la collection spécifiée à la fin de cette liste, dans l'ordre dans lequel ils sont renvoyés par l'itérateur de la collection spécifiée (opération facultative).
+boolean	addAll(int index, Collection<? extends E> c)
+Insère tous les éléments de la collection spécifiée dans cette liste à la position spécifiée (opération facultative).
+void	clear()
+Supprime tous les éléments de cette liste (opération facultative).
+boolean	contains(Object o)
+Renvoie vrai si cette liste contient l'élément spécifié.
+boolean	containsAll(Collection<?> c)
+Renvoie vrai si cette liste contient tous les éléments de la collection spécifiée.
+boolean	equals(Object o)
+Compare l'objet spécifié avec cette liste pour l'égalité.
+E	get(int index)
+Renvoie l'élément à la position spécifiée dans cette liste.
+int	hashCode()
+Renvoie la valeur du code de hachage pour cette liste.
+int	indexOf(Object o)
+Renvoie l'index de la première occurrence de l'élément spécifié dans cette liste, ou -1 si cette liste ne contient pas l'élément.
+boolean	isEmpty()
+Renvoie vrai si cette liste ne contient aucun élément.
+Iterator<E>	iterator()
+Renvoie un itérateur sur les éléments de cette liste dans le bon ordre.
+int	lastIndexOf(Object o)
+Renvoie l'index de la dernière occurrence de l'élément spécifié dans cette liste, ou -1 si cette liste ne contient pas l'élément.
+ListIterator<E>	listIterator()
+Renvoie un itérateur de liste sur les éléments de cette liste (dans le bon ordre).
+ListIterator<E>	listIterator(int index)
+Renvoie un itérateur de liste sur les éléments de cette liste (dans le bon ordre), en commençant à la position spécifiée dans la liste.
+E	remove(int index)
+Supprime l'élément à la position spécifiée dans cette liste (opération facultative).
+boolean	remove(Object o)
+Supprime la première occurrence de l'élément spécifié de cette liste, s'il est présent (opération facultative).
+boolean	removeAll(Collection<?> c)
+Supprime de cette liste tous ses éléments contenus dans la collection spécifiée (opération facultative).
+default void	replaceAll(UnaryOperator<E> operator)
+Remplace chaque élément de cette liste par le résultat de l'application de l'opérateur à cet élément.
+boolean	retainAll(Collection<?> c)
+Conserve uniquement les éléments de cette liste qui sont contenus dans la collection spécifiée (opération facultative).
+E	set(int index, E element)
+Remplace l'élément à la position spécifiée dans cette liste par l'élément spécifié (opération facultative).
+int	size()
+Renvoie le nombre d'éléments dans cette liste.
+default void	sort(Comparator<? super E> c)
+Trie cette liste selon l'ordre induit par le spécifié Comparator.
+default Spliterator<E>	spliterator()
+Crée un Spliteratorsur les éléments de cette liste.
+List<E>	subList(int fromIndex, int toIndex)
+Renvoie une vue de la partie de cette liste entre les fromIndex spécifiés , inclus, et toIndex , exclusifs.
+Object[]	toArray()
+Renvoie un tableau contenant tous les éléments de cette liste dans le bon ordre (du premier au dernier élément).
+<T> T[]	toArray(T[] a)
+Renvoie un tableau contenant tous les éléments de cette liste dans le bon ordre (du premier au dernier élément) ; le type d'exécution du tableau renvoyé est celui du tableau spécifié.

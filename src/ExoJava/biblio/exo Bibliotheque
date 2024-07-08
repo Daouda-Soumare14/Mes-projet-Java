@@ -1,0 +1,17 @@
+Exercice : Gestion d'une bibliothèque
+
+Imaginez que vous devez créer un système de gestion pour une bibliothèque. Voici ce que vous devez réaliser :
+
+Créez une classe Livre avec les attributs suivants :
+titre (String) : le titre du livre.
+auteur (String) : le nom de l'auteur du livre.
+anneePublication (int) : l'année de publication du livre.
+disponible (boolean) : un indicateur indiquant si le livre est disponible ou emprunté.
+Créez une classe Bibliotheque avec une liste (par exemple, un tableau ou une liste) pour stocker les livres.
+Cette classe doit avoir des méthodes pour :
+Ajouter un livre à la bibliothèque.
+Emprunter un livre (mettre à jour le statut du livre pour le marquer comme emprunté).
+Retourner un livre (mettre à jour le statut du livre pour le marquer comme disponible).
+Afficher la liste des livres disponibles.
+Dans votre méthode principale (main), créez quelques instances de livres et une instance de la bibliothèque.
+Ajoutez ces livres à la bibliothèque et effectuez quelques emprunts et retours pour tester votre système.

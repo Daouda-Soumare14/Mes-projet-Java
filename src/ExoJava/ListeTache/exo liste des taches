@@ -1,0 +1,16 @@
+Exercice : Gestion d'une liste de tâches
+
+Imaginez que vous devez créer un programme pour gérer une liste de tâches à faire (todo list). Voici ce que vous devez réaliser :
+
+Créez une classe Tache avec les attributs suivants :
+titre (String) : le titre de la tâche.
+description (String) : une description de la tâche.
+terminee (boolean) : un indicateur indiquant si la tâche est terminée ou non.
+Créez une classe ListeTaches qui stockera une liste (par exemple, un tableau ou une liste) de tâches. Cette classe doit avoir des méthodes pour :
+Ajouter une nouvelle tâche à la liste.
+Marquer une tâche comme terminée.
+Afficher la liste des tâches à faire.
+Afficher la liste des tâches terminées.
+Dans votre méthode principale (main), créez quelques instances de tâches et une instance de la liste de tâches.
+Ajoutez ces tâches à la liste et effectuez quelques actions pour tester votre système,
+telles que marquer des tâches comme terminées ou afficher les listes de tâches à faire et terminées.

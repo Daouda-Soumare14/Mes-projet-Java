@@ -1,0 +1,19 @@
+Exercice : Gestion d'une liste de produits
+Objectif :
+
+Écrire un programme Java qui gère une liste de produits avec les fonctionnalités suivantes :
+
+Ajouter un produit à la liste.
+Afficher tous les produits de la liste.
+Calculer et afficher le prix total de tous les produits dans la liste.
+Instructions :
+
+Définition de la classe Product :
+
+Chaque produit aura un nom (String) et un prix (double).
+Classe principale ProductManager :
+
+Utilisez une liste (par exemple, ArrayList) pour stocker les produits.
+Implémentez une méthode pour ajouter un produit à la liste.
+Implémentez une méthode pour afficher tous les produits de la liste.
+Implémentez une méthode pour calculer et afficher le prix total de tous les produits dans la liste en utilisant une lambda expression.

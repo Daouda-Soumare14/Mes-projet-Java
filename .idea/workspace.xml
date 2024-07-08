@@ -1,31 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fdfc582-baf9-4f87-92d5-f92b13944c17" name="Changes" comment="" />
+    <list default="true" id="5fdfc582-baf9-4f87-92d5-f92b13944c17" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rachid.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ExoApplication/Compte.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ExoApplication/CompteEpargne.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ExoApplication/ComptePayant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ExoApplication/CompteSimple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ExoApplication/GestionBanque.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ExoApplication/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/ba/condition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/ba/conversion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/ba/convertir.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/ba/somme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/ba/variable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/java/Camion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/java/Vehicule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/java/VehiculeMotorise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/java/Voiture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/java/tableax.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/testBases/compareValeur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/testBases/convertionTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/testBases/menuCalculate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/testBases/nombrePremierParfait.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/testBases/objetPrimit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/testBases/tva.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bases/testBases/variable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo/ExoApplication/Compte.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo/ExoApplication/CompteEpargne.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo/ExoApplication/ComptePayant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo/ExoApplication/CompteSimple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo/ExoApplication/GestionBanque.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo/ExoApplication/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo_serie3/exo1/Somme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo_serie3/exo2/TableauEntier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo_serie3/exo3/TableauDeNEntier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo_serie3/exo4/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo_serie3/exo4/Personne.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo_serie3/exo5/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/poo_serie3/exo5/Personne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bases/Temps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bases/Temps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Daouda-Soumare14&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Daouda-Soumare14/RachidEljay.git&quot;,
+    &quot;accountId&quot;: &quot;57725670-e29d-40cf-a09e-2b75c39990a2&quot;
+  }
+}</component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2gZDjdiKrSijHXHfEBWXziWDqb9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ConversionObjetPrimitif.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ConvertirPrimitifEnPrimitif.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GestionBanque.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Somme.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SommeNombre.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TableauDeNEntier.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TableauEntier.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Temps.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestValeur.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Variable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.compareValeur.executor&quot;: &quot;Run&quot;,
+    &quot;Application.condition.executor&quot;: &quot;Run&quot;,
+    &quot;Application.conversion.executor&quot;: &quot;Run&quot;,
+    &quot;Application.convertionTypes.executor&quot;: &quot;Run&quot;,
+    &quot;Application.convertir.executor&quot;: &quot;Run&quot;,
+    &quot;Application.menuCalculate.executor&quot;: &quot;Run&quot;,
+    &quot;Application.nombrePremierParfait.executor&quot;: &quot;Run&quot;,
+    &quot;Application.objetPrimit.executor&quot;: &quot;Run&quot;,
+    &quot;Application.somme.executor&quot;: &quot;Run&quot;,
+    &quot;Application.tableax.executor&quot;: &quot;Run&quot;,
+    &quot;Application.testMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.tva.executor&quot;: &quot;Run&quot;,
+    &quot;Application.variable.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/eljayrachid/Desktop/MesProjetJava/Rachid&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="poo.ExoApplication.GestionBanque" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -36,5 +150,26 @@
       <updated>1715896342369</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArithmeticException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,0 +1,861 @@
+Index: src/poo_serie3/exo4/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie3/exo4/Main.java b/src/poo_serie3/exo4/Main.java
+new file mode 100644
+--- /dev/null	(date 1716838321962)
++++ b/src/poo_serie3/exo4/Main.java	(date 1716838321962)
+@@ -0,0 +1,26 @@
++package poo_serie3.exo4;
++
++import java.time.LocalDate;
++
++public class Main
++{
++    public static void main(String[] args)
++    {
++        Personne p1 = new Personne("soumare", "daouda", LocalDate.of(2001, 9, 18));
++        Personne p2 = new Personne("soumare", "hamidou", LocalDate.of(1998, 7, 27));
++        Personne p3 = new Personne("soumare", "mamadou", LocalDate.of(2003, 9, 23));
++
++        System.out.println("nom : "+ p2.getNom() + " ; "+ " prenom : "+ p2.getPrenom()+ " ; "+ "matricule : "+p2.getMatricule()+ " ; "+ "age : "+p2.getAge()+ " ans");
++        System.out.println("nom : "+ p1.getNom() + " ; "+ " prenom : "+ p1.getPrenom()+ " ; "+ "matricule : "+p1.getMatricule()+ " ; "+ "age : "+p1.getAge()+ " ans");
++        System.out.println("nom : "+ p3.getNom() + " ; "+ " prenom : "+ p3.getPrenom()+ " ; "+ "matricule : "+p3.getMatricule()+ " ; "+ "age : "+p3.getAge()+ " ans");
++        System.out.println(p1.toString());
++        System.out.println(p2.toString());
++        System.out.println(p3.toString());
++        System.out.println(p1.equals(p1));
++        System.out.println(p1.equals(p2));
++        System.out.println(p1.equals(p3));
++        System.out.println(p1.hashCode());
++        System.out.println(p2.hashCode());
++        System.out.println(p3.hashCode());
++    }
++}
+Index: src/poo_serie3/exo4/Personne.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie3/exo4/Personne.java b/src/poo_serie3/exo4/Personne.java
+new file mode 100644
+--- /dev/null	(date 1716838193281)
++++ b/src/poo_serie3/exo4/Personne.java	(date 1716838193281)
+@@ -0,0 +1,79 @@
++package poo_serie3.exo4;
++
++import java.time.LocalDate;
++import java.time.Period;
++import java.util.Objects;
++
++public class Personne
++{
++    private static int conteurMatricule = 0;
++    private String nom;
++    private String prenom;
++    private String matricule;
++    private LocalDate dateNaissance;
++    private int age;
++
++    public Personne(String nom, String prenom, LocalDate dateNaissance){
++        this.nom = nom;
++        this.prenom = prenom;
++        this.matricule = generateurMatricule();
++        this.dateNaissance = dateNaissance;
++        this.age = calculAge();
++    }
++
++    private String generateurMatricule(){
++        conteurMatricule++;
++        String premierLettrePrenomNOm = prenom.substring(0, 1).toUpperCase() + nom.substring(0, 1).toUpperCase();
++        String identifiant = String.format("%04d", conteurMatricule % 10);
++        return premierLettrePrenomNOm + identifiant;
++    }
++
++    public int calculAge(){
++        LocalDate dateActuelle = LocalDate.now();
++        if (dateNaissance != null && !dateNaissance.isAfter(dateActuelle)){
++            return Period.between(dateNaissance, dateActuelle).getYears();
++        }else {
++            throw new IllegalArgumentException("la date de naissance est invalide");
++        }
++    }
++
++    public String getNom() {
++        return nom;
++    }
++
++    public String getPrenom() {
++        return prenom;
++    }
++
++    public String getMatricule() {
++        return matricule;
++    }
++
++    public int getAge() {
++        return age;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        Personne personne = (Personne) o;
++        return age == personne.age && Objects.equals(nom, personne.nom) && Objects.equals(prenom, personne.prenom) && Objects.equals(matricule, personne.matricule) && Objects.equals(dateNaissance, personne.dateNaissance);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(nom, prenom, matricule, dateNaissance, age);
++    }
++
++    @Override
++    public String toString() {
++        return "Personne{" +
++                "nom='" + nom + '\'' +
++                ", prenom='" + prenom + '\'' +
++                ", matricule='" + matricule + '\'' +
++                ", dateNaissance=" + dateNaissance +
++                ", age=" + age +
++                '}';
++    }
++}
+Index: src/poo_serie3/exo5/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie3/exo5/Main.java b/src/poo_serie3/exo5/Main.java
+new file mode 100644
+--- /dev/null	(date 1716842575473)
++++ b/src/poo_serie3/exo5/Main.java	(date 1716842575473)
+@@ -0,0 +1,12 @@
++package poo_serie3.exo5;
++
++import java.time.LocalDate;
++
++public class Main
++{
++    public static void main(String[] args)
++    {
++        Personne p1 = new Personne("soumare", "daouda", LocalDate.of(2001, 9, 18));
++        System.out.println("nom : "+p1.getNom() + ", prenom : "+ p1.getPrenom() + ", matricule : "+ p1.getMatricule()+ ", age : "+ p1.getAge());
++    }
++}
+Index: src/poo_serie3/exo5/Personne.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie3/exo5/Personne.java b/src/poo_serie3/exo5/Personne.java
+new file mode 100644
+--- /dev/null	(date 1716842216913)
++++ b/src/poo_serie3/exo5/Personne.java	(date 1716842216913)
+@@ -0,0 +1,74 @@
++package poo_serie3.exo5;
++
++import java.time.LocalDate;
++import java.time.Period;
++import java.util.Random;
++
++public class Personne
++{
++    private static final Random random = new Random();
++    private static int conteurMatricule = 0;
++    private String nom;
++    private String prenom;
++    private int age;
++    private String matricule;
++    private LocalDate dateNaissance;
++
++    public Personne(String nom, String prenom, LocalDate dateNaissance) {
++        this.nom = nom;
++        this.prenom = prenom;
++        this.dateNaissance = dateNaissance;
++        this.matricule = generateurMatricule();
++        this.age = calculAge();
++    }
++
++    public String generateurMatricule(){
++        conteurMatricule++;
++        String annee = String.format("%04d", dateNaissance.getYear());
++        String mois = String.format("%02d", dateNaissance.getMonthValue());
++        String jour = String.format("%02d", dateNaissance.getDayOfMonth());
++        String randomId = String.format("%04d", random.nextInt (10));
++        return annee + mois + jour + randomId;
++    }
++
++    public int calculAge(){
++        LocalDate dateActuelle = LocalDate.now();
++        if (dateNaissance != null && !dateNaissance.isAfter(dateActuelle)){
++            return Period.between(dateNaissance, dateActuelle).getYears();
++        }else {
++            throw new IllegalArgumentException("la date de naissance est invalide.");
++        }
++    }
++
++    public String getNom() {
++        return nom;
++    }
++
++    public void setNom(String nom) {
++        this.nom = nom;
++    }
++
++    public String getPrenom() {
++        return prenom;
++    }
++
++    public void setPrenom(String prenom) {
++        this.prenom = prenom;
++    }
++
++    public int getAge() {
++        return age;
++    }
++
++    public void setAge(int age) {
++        this.age = age;
++    }
++
++    public String getMatricule() {
++        return matricule;
++    }
++
++    public void setMatricule(String matricule) {
++        this.matricule = matricule;
++    }
++}
+Index: src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pooJiraWs.Classe_Objet.Collection.Streams;\n\nimport lombok.AllArgsConstructor;\nimport lombok.Data;\nimport pooJiraWs.Classe_Objet.Collection.liste.Listes;\n\nimport java.util.Date;\nimport java.util.List;\n\n@Data\n@AllArgsConstructor\npublic class Humain\n{\n    String nom;\n    String prenom;\n    List<String> autresPrenomList;\n    Integer age;\n    Date dateNaissance;\n    Long numeroSocial;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java b/src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java
+--- a/src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/pooJiraWs/Classe_Objet/Collection/Streams/Humain.java	(date 1715993046134)
+@@ -1,3 +1,4 @@
++/*
+ package pooJiraWs.Classe_Objet.Collection.Streams;
+ 
+ import lombok.AllArgsConstructor;
+@@ -18,3 +19,4 @@
+     Date dateNaissance;
+     Long numeroSocial;
+ }
++*/
+Index: src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pooJiraWs.Classe_Objet.Collection.Streams;\n\nimport java.util.Arrays;\nimport java.util.Date;\nimport java.util.List;\nimport java.util.stream.Collectors;\n\npublic class Main\n{\n    public static void main(String[] args)\n    {\n        List<Humain> humainList = Arrays.asList(\n                new Humain(\"soumare\", \"daouda\", List.of(\"rachid\"), 23, new Date(), 12344054543L),\n                new Humain(\"soumare\", \"hamidou\", List.of(\"bouba\", \"camara\", \"lassana\"), 25, new Date(), 12344154543L),\n                new Humain(\"soumare\", \"zakaria\", List.of(\"eljay\"), 24, new Date(), 12342454543L),\n                new Humain(\"fofana\", \"abdou\", List.of(\"samba\"), 29, new Date(), 12344354543L)\n        );\n\n        System.out.println(\"----------------------------------------------------------------------------\");\n        System.out.println(\"permet d'afficher s'il y a une personne qui a pluis de 20 ans dans liste\");\n        // permet d'afficher s'il y a une personne qui a pluis de 20 ans dans liste\n        if (humainList.stream().anyMatch(humain -> humain.getAge() >= 20)){\n            System.out.println(\"il y'a bien un humain agé de plus de 20 ans\");\n        }\n\n        System.out.println(\"----------------------------------------------------------------------------\");\n        System.out.println(\"Filtrer les Humains ayant un âge supérieur ou égal à 25 ans et les stocker dans une nouvelle liste\");\n        // Filtrer les Humains ayant un âge supérieur ou égal à 25 ans et les stocker dans une nouvelle liste\n        List<Humain> vieuxHumainList = humainList.stream().filter(humain -> humain.getAge() >= 25).toList();\n\n        // Parcourir la liste des Humains ayant un âge supérieur ou égal à 25 ans et afficher leur prénom\n        vieuxHumainList.forEach(humain -> System.out.println(humain.getPrenom()));\n\n        System.out.println(\"----------------------------------------------------------------------------\");\n        System.out.println(\"Filtrer les Humains ayant un âge supérieur ou égal à 25 ans et mapper leur numéro social dans une nouvelle liste\");\n        // Filtrer les Humains ayant un âge supérieur ou égal à 25 ans et mapper leur numéro social dans une nouvelle liste\n        List<Long> humainAgeDePlusDevingtAns = humainList.stream().filter(humain -> humain.getAge() >= 25).map(Humain::getNumeroSocial).toList();\n\n        // Afficher la liste des numéros sociaux des Humains ayant un âge supérieur ou égal à 25 ans\n        System.out.println(humainAgeDePlusDevingtAns);\n\n\n        System.out.println(\"----------------------------------------------------------------------------\");\n        System.out.println(\"Filtrer les Humains ayant un âge supérieur ou égal à 25 ans, puis mapper les listes d'autres prénoms dans une seule liste\");\n        // Filtrer les Humains ayant un âge supérieur ou égal à 25 ans, puis mapper les listes d'autres prénoms dans une seule liste\n        List<String> autresPrenomList = humainList.stream().filter(humain -> humain.getAge() >= 25).flatMap(humain -> humain.getAutresPrenomList().stream()).toList();\n\n        // Afficher la liste des autres prénoms des Humains ayant un âge supérieur ou égal à 25 ans\n        System.out.println(autresPrenomList);\n\n\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java b/src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java
+--- a/src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/pooJiraWs/Classe_Objet/Collection/Streams/Main.java	(date 1715993046142)
+@@ -1,3 +1,4 @@
++/*
+ package pooJiraWs.Classe_Objet.Collection.Streams;
+ 
+ import java.util.Arrays;
+@@ -51,3 +52,4 @@
+ 
+     }
+ }
++*/
+Index: src/poo/exo1/Voiture.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo1/Voiture.java b/src/poo_serie2/exo1/Voiture.java
+rename from src/poo/exo1/Voiture.java
+rename to src/poo_serie2/exo1/Voiture.java
+--- a/src/poo/exo1/Voiture.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo1/Voiture.java	(date 1716819378145)
+@@ -1,4 +1,4 @@
+-package poo.exo1;
++package poo_serie2.exo1;
+ 
+ public class Voiture
+ {
+Index: src/poo/exo1/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo1/Main.java b/src/poo_serie2/exo1/Main.java
+rename from src/poo/exo1/Main.java
+rename to src/poo_serie2/exo1/Main.java
+--- a/src/poo/exo1/Main.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo1/Main.java	(date 1716819378206)
+@@ -1,4 +1,4 @@
+-package poo.exo1;
++package poo_serie2.exo1;
+ 
+ public class Main
+ {
+Index: src/poo/exo2/Voiture.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo2/Voiture.java b/src/poo_serie2/exo2/Voiture.java
+rename from src/poo/exo2/Voiture.java
+rename to src/poo_serie2/exo2/Voiture.java
+--- a/src/poo/exo2/Voiture.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo2/Voiture.java	(date 1716819378110)
+@@ -1,4 +1,4 @@
+-package poo.exo2;
++package poo_serie2.exo2;
+ 
+ public class Voiture
+ {
+Index: src/poo/exo2/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo2/Main.java b/src/poo_serie2/exo2/Main.java
+rename from src/poo/exo2/Main.java
+rename to src/poo_serie2/exo2/Main.java
+--- a/src/poo/exo2/Main.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo2/Main.java	(date 1716819378064)
+@@ -1,4 +1,4 @@
+-package poo.exo2;
++package poo_serie2.exo2;
+ 
+ public class Main
+ {
+Index: src/poo/exo3/Voiture.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo3/Voiture.java b/src/poo_serie2/exo3/Voiture.java
+rename from src/poo/exo3/Voiture.java
+rename to src/poo_serie2/exo3/Voiture.java
+--- a/src/poo/exo3/Voiture.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo3/Voiture.java	(date 1716819378152)
+@@ -1,4 +1,4 @@
+-package poo.exo3;
++package poo_serie2.exo3;
+ 
+ public class Voiture
+ {
+Index: src/poo/exo3/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo3/Main.java b/src/poo_serie2/exo3/Main.java
+rename from src/poo/exo3/Main.java
+rename to src/poo_serie2/exo3/Main.java
+--- a/src/poo/exo3/Main.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo3/Main.java	(date 1716819378158)
+@@ -1,4 +1,4 @@
+-package poo.exo3;
++package poo_serie2.exo3;
+ 
+ 
+ public class Main
+Index: src/poo_serie2/exoBanque/Compte.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie2/exoBanque/Compte.java b/src/poo_serie2/exoBanque/Compte.java
+new file mode 100644
+--- /dev/null	(date 1716819378050)
++++ b/src/poo_serie2/exoBanque/Compte.java	(date 1716819378050)
+@@ -0,0 +1,47 @@
++package poo_serie2.exoBanque;
++
++public abstract class Compte
++{
++    protected double solde;
++    protected int numCompte;
++
++
++    public Compte(double solde, int numCompte) {
++        this.solde = solde;
++        this.numCompte = numCompte;
++    }
++
++    public void setSolde(double solde) {
++        this.solde = solde;
++    }
++
++    public void setNumCompte(int numCompte) {
++        this.numCompte = numCompte;
++    }
++
++    public double getSolde() {
++        return solde;
++    }
++
++    public int getNumCompte() {
++        return numCompte;
++    }
++
++    public void deposer(double montant){
++        if (montant <= 0){
++            System.out.println("vous ne pouvez pas deposer un montant inferieur ou egale a 0");
++        }else {
++            this.solde += montant;
++        }
++    }
++
++    public void retirer(double montant){
++        if (montant <= 0){
++            System.out.println("vous ne pouvez pas retirer un montant inferieur ou egale a 0");
++        }else {
++            this.solde -= montant;
++        }
++    }
++    public abstract void afficheDetail();
++
++}
+Index: src/poo/exo4/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo4/Main.java b/src/poo_serie2/exo4/Main.java
+rename from src/poo/exo4/Main.java
+rename to src/poo_serie2/exo4/Main.java
+--- a/src/poo/exo4/Main.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo4/Main.java	(date 1716819378137)
+@@ -1,4 +1,4 @@
+-package poo.exo4;
++package poo_serie2.exo4;
+ 
+ 
+ public class Main
+Index: src/poo/exo4/Camion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo4/Camion.java b/src/poo_serie2/exo4/Camion.java
+rename from src/poo/exo4/Camion.java
+rename to src/poo_serie2/exo4/Camion.java
+--- a/src/poo/exo4/Camion.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo4/Camion.java	(date 1716819378076)
+@@ -1,4 +1,4 @@
+-package poo.exo4;
++package poo_serie2.exo4;
+ 
+ public class Camion extends Voiture
+ {
+Index: src/poo/exo5/Camion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo5/Camion.java b/src/poo_serie2/exo5/Camion.java
+rename from src/poo/exo5/Camion.java
+rename to src/poo_serie2/exo5/Camion.java
+--- a/src/poo/exo5/Camion.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo5/Camion.java	(date 1716819378120)
+@@ -1,6 +1,6 @@
+-package poo.exo5;
++package poo_serie2.exo5;
+ 
+-import poo.exo4.Voiture;
++import poo_serie2.exo4.Voiture;
+ 
+ public class Camion extends Voiture
+ {
+Index: src/poo_serie2/exoBanque/CompteSimple.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie2/exoBanque/CompteSimple.java b/src/poo_serie2/exoBanque/CompteSimple.java
+new file mode 100644
+--- /dev/null	(date 1716819378187)
++++ b/src/poo_serie2/exoBanque/CompteSimple.java	(date 1716819378187)
+@@ -0,0 +1,13 @@
++package poo_serie2.exoBanque;
++
++public class CompteSimple extends Compte
++{
++    public CompteSimple(double solde, int numCompte) {
++        super(solde, numCompte);
++    }
++
++    @Override
++    public void afficheDetail() {
++        System.out.println("le solde actuel : "+ this.solde + "F"+ "; le num du compte : "+ this.numCompte);
++    }
++}
+Index: src/poo/exo4/Voiture.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo4/Voiture.java b/src/poo_serie2/exo4/Voiture.java
+rename from src/poo/exo4/Voiture.java
+rename to src/poo_serie2/exo4/Voiture.java
+--- a/src/poo/exo4/Voiture.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo4/Voiture.java	(date 1716819378104)
+@@ -1,4 +1,4 @@
+-package poo.exo4;
++package poo_serie2.exo4;
+ 
+ public class Voiture
+ {
+Index: src/poo_serie2/exoBanque/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie2/exoBanque/Main.java b/src/poo_serie2/exoBanque/Main.java
+new file mode 100644
+--- /dev/null	(date 1716819378096)
++++ b/src/poo_serie2/exoBanque/Main.java	(date 1716819378096)
+@@ -0,0 +1,28 @@
++package poo_serie2.exoBanque;
++
++public class Main
++{
++    public static void main(String[] args){
++        CompteSimple monCompteSimple = new CompteSimple(0.0, 33333333);
++        monCompteSimple.afficheDetail();
++        monCompteSimple.deposer(100);
++        monCompteSimple.afficheDetail();
++        monCompteSimple.retirer(-50);
++        monCompteSimple.afficheDetail();
++
++        System.out.println("############################################################");
++
++        CompteEpargne monCompteEpargne = new CompteEpargne(0.0, 22222222);
++        monCompteEpargne.deposer(1000);
++        monCompteEpargne.afficheDetail();
++        System.out.println("le taux d'interet : "+ monCompteEpargne.calculInteret());
++        monCompteEpargne.afficheDetail();
++
++        System.out.println("############################################################");
++
++        ComptePayant monComptePayant = new ComptePayant(0.0, 11111111);
++        monComptePayant.deposer(2000000);
++        monComptePayant.afficheDetail();
++        monComptePayant.retirer(1000000);
++    }
++}
+Index: src/poo/exo5/Voiture.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo5/Voiture.java b/src/poo_serie2/exo5/Voiture.java
+rename from src/poo/exo5/Voiture.java
+rename to src/poo_serie2/exo5/Voiture.java
+--- a/src/poo/exo5/Voiture.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo5/Voiture.java	(date 1716819378129)
+@@ -1,4 +1,4 @@
+-package poo.exo5;
++package poo_serie2.exo5;
+ 
+ public class Voiture
+ {
+Index: src/poo/exo5/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo5/Main.java b/src/poo_serie2/exo5/Main.java
+rename from src/poo/exo5/Main.java
+rename to src/poo_serie2/exo5/Main.java
+--- a/src/poo/exo5/Main.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo5/Main.java	(date 1716819378220)
+@@ -1,4 +1,4 @@
+-package poo.exo5;
++package poo_serie2.exo5;
+ 
+ public class Main
+ {
+Index: src/poo_serie2/exoBanque/CompteEpargne.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie2/exoBanque/CompteEpargne.java b/src/poo_serie2/exoBanque/CompteEpargne.java
+new file mode 100644
+--- /dev/null	(date 1716819378231)
++++ b/src/poo_serie2/exoBanque/CompteEpargne.java	(date 1716819378231)
+@@ -0,0 +1,20 @@
++package poo_serie2.exoBanque;
++
++public class CompteEpargne extends Compte
++{
++    public static final double TAUX = 30;
++
++    public CompteEpargne(double solde, int numCompte){
++        super(solde, numCompte);
++    }
++
++    public double calculInteret(){
++        this.solde = (getSolde() * TAUX) / 100;
++        return this.solde;
++    }
++
++    @Override
++    public void afficheDetail() {
++        System.out.println("le solde actuel : "+ this.solde + "F"+ "; le num du compte : "+ this.numCompte);
++    }
++}
+Index: src/poo/exo6/Vehicule.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo6/Vehicule.java b/src/poo_serie2/exo6/Vehicule.java
+rename from src/poo/exo6/Vehicule.java
+rename to src/poo_serie2/exo6/Vehicule.java
+--- a/src/poo/exo6/Vehicule.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo6/Vehicule.java	(date 1716819378085)
+@@ -1,4 +1,4 @@
+-package poo.exo6;
++package poo_serie2.exo6;
+ 
+ public abstract class Vehicule
+ {
+Index: src/poo/exo6/Camion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo6/Camion.java b/src/poo_serie2/exo6/Camion.java
+rename from src/poo/exo6/Camion.java
+rename to src/poo_serie2/exo6/Camion.java
+--- a/src/poo/exo6/Camion.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo6/Camion.java	(date 1716819378194)
+@@ -1,4 +1,4 @@
+-package poo.exo6;
++package poo_serie2.exo6;
+ 
+ public class Camion extends Vehicule implements VehiculeMotoris
+ {
+Index: src/poo_serie2/exoBanque/ComptePayant.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie2/exoBanque/ComptePayant.java b/src/poo_serie2/exoBanque/ComptePayant.java
+new file mode 100644
+--- /dev/null	(date 1716819378173)
++++ b/src/poo_serie2/exoBanque/ComptePayant.java	(date 1716819378173)
+@@ -0,0 +1,29 @@
++package poo_serie2.exoBanque;
++
++public class ComptePayant extends Compte
++{
++    public ComptePayant(double solde, int numCompte) {
++        super(solde, numCompte);
++    }
++
++    public void deposer(double montant){
++        if (montant <= 0){
++            System.out.println("vous ne pouvez pas deposer un montant inferieur ou egale a 0");
++        }else {
++            this.solde += (montant * 0.03);
++        }
++    }
++
++    public void retirer(double montant){
++        if (montant <= 0){
++            System.out.println("vous ne pouvez pas retirer un montant inferieur ou egale a 0");
++        }else {
++            this.solde -= (montant * 0.03);
++        }
++    }
++
++    @Override
++    public void afficheDetail() {
++        System.out.println("le solde actuel : "+ this.solde + "F"+ "; le num du compte : "+ this.numCompte);
++    }
++}
+Index: src/poo/exo6/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo6/Main.java b/src/poo_serie2/exo6/Main.java
+rename from src/poo/exo6/Main.java
+rename to src/poo_serie2/exo6/Main.java
+--- a/src/poo/exo6/Main.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo6/Main.java	(date 1716819378166)
+@@ -1,4 +1,4 @@
+-package poo.exo6;
++package poo_serie2.exo6;
+ 
+ public class Main
+ {
+Index: src/poo/exo6/VehiculeMotoris.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo6/VehiculeMotoris.java b/src/poo_serie2/exo6/VehiculeMotoris.java
+rename from src/poo/exo6/VehiculeMotoris.java
+rename to src/poo_serie2/exo6/VehiculeMotoris.java
+--- a/src/poo/exo6/VehiculeMotoris.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo6/VehiculeMotoris.java	(date 1716819378180)
+@@ -1,4 +1,4 @@
+-package poo.exo6;
++package poo_serie2.exo6;
+ 
+ public interface VehiculeMotoris
+ {
+Index: src/poo/exo6/Voiture.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo/exo6/Voiture.java b/src/poo_serie2/exo6/Voiture.java
+rename from src/poo/exo6/Voiture.java
+rename to src/poo_serie2/exo6/Voiture.java
+--- a/src/poo/exo6/Voiture.java	(revision 72efef505cdbd8a9d317d3ddce3d687287410376)
++++ b/src/poo_serie2/exo6/Voiture.java	(date 1716819378200)
+@@ -1,4 +1,4 @@
+-package poo.exo6;
++package poo_serie2.exo6;
+ 
+ public class Voiture extends Vehicule implements VehiculeMotoris
+ {
+Index: src/poo_serie3/exo1/SommeNombre.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie3/exo1/SommeNombre.java b/src/poo_serie3/exo1/SommeNombre.java
+new file mode 100644
+--- /dev/null	(date 1716820042922)
++++ b/src/poo_serie3/exo1/SommeNombre.java	(date 1716820042922)
+@@ -0,0 +1,20 @@
++package poo_serie3.exo1;
++
++import java.util.Scanner;
++
++public class SommeNombre
++{
++    public static void main(String[] args)
++    {
++        Scanner scan = new Scanner(System.in);
++
++        System.out.println("saisir le nombre 1 : ");
++        int nombre1 = scan.nextInt();
++
++        System.out.println("saisir le nombre 2 : ");
++        int nombre2 = scan.nextInt();
++
++        int somme = nombre1 + nombre2;
++        System.out.println("la somme = " + somme);
++    }
++}
+Index: src/poo_serie3/exo2/TableauEntier.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie3/exo2/TableauEntier.java b/src/poo_serie3/exo2/TableauEntier.java
+new file mode 100644
+--- /dev/null	(date 1716823442146)
++++ b/src/poo_serie3/exo2/TableauEntier.java	(date 1716823442146)
+@@ -0,0 +1,25 @@
++package poo_serie3.exo2;
++
++import java.lang.reflect.Array;
++import java.util.Scanner;
++
++public class TableauEntier
++{
++    public static void main(String[] args)
++    {
++        Scanner scan = new Scanner(System.in);
++
++        int[] tab = new int[5];
++
++        for (int i = 0; i < tab.length; i++) {
++            System.out.println("saisir la valeur " + (i + 1) + " : ");
++            tab[i] = scan.nextInt();
++        }
++
++        int somme = 0;
++        for (int i = 0; i < tab.length; i++) {
++            somme += tab[i];
++        }
++        System.out.println("la somme des elements du tableau : " + somme);
++    }
++}
+Index: src/poo_serie3/exo3/TableauDeNEntier.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/poo_serie3/exo3/TableauDeNEntier.java b/src/poo_serie3/exo3/TableauDeNEntier.java
+new file mode 100644
+--- /dev/null	(date 1716826346129)
++++ b/src/poo_serie3/exo3/TableauDeNEntier.java	(date 1716826346129)
+@@ -0,0 +1,53 @@
++package poo_serie3.exo3;
++
++import java.util.Arrays;
++import java.util.Scanner;
++
++public class TableauDeNEntier
++{
++    public static void main(String[] args)
++    {
++        Scanner scan = new Scanner(System.in);
++
++        System.out.println("saisir un entier N : ");
++        int N = scan.nextInt();
++
++        int[] tab = new int[N];
++
++        for (int i = 0; i < tab.length; i++) {
++            System.out.println("saisir la valeur " + (i + 1) + " : ");
++            tab[i] = scan.nextInt();
++        }
++
++        int max = tab[0];
++        int min = tab[0];
++
++        for (int i = 0; i < tab.length; i++) {
++            if (tab[i] > max){
++                max = tab[i];
++            }else if (tab[i] < min) {
++                min = tab[i];
++            }
++        }
++        System.out.println("la valeur la plus grande du tableau : " + max);
++        System.out.println("la valeur la plus petite du tableau : " + min);
++
++        int somme = 0;
++
++        for (int i = 0; i < tab.length; i++) {
++            if (tab[i] % 2 == 0){
++                somme += tab[i];
++            }
++        }
++        System.out.println("la somme des valeurs pairs du tableau : " + somme);
++
++        int cpt = 0;
++
++        for (int i = 0; i < tab.length; i++) {
++            if (min == tab[i]){
++                cpt += 1;
++            }
++        }
++        System.out.println("le nombre d'occurence de la valeur la plus petite du tableau : " + cpt);
++    }
++}
